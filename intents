@@ -1,0 +1,206 @@
+#change_data - НАЗВАНИЕ ИНТЕНТА
+root:
+    %lemma
+    поменяй данные
+    хочу поменять данные
+    поменять данные
+    как поменять данные
+    поменять информацию
+    поменяй информацию
+    хочу поменять информацию
+    обнови данные
+    обновить данные
+    обнули данные
+    обнулить данные
+    хочу обнулить данные
+    как обнулить данные
+    удали данные
+    удалить данные
+
+
+#course - НАЗВАНИЕ ИНТЕНТА
+slots:
+    course:
+        source: $Course
+        type: Course
+
+root:
+    %lemma
+    $Course
+    на $Course
+
+
+#direction - НАЗВАНИЕ ИНТЕНТА
+slots:
+    direction:
+        source: $Direction
+        type: Direction
+    format:
+        source: $format
+        type: format
+    level:
+        source: $Level
+        type: Level
+
+root:
+    %lemma
+
+    $Level $Direction $format
+    на $Level $Direction $format
+    я учусь на $Level $Direction $format
+
+    $Level $format $Direction
+    на $Level $format $Direction
+    я учусь на $Level $format $Direction
+
+    $format $Direction $Level 
+    на $format $Direction $Level 
+    я учусь на $format $Direction $Level 
+
+    $format $Level $Direction 
+    на $format $Level $Direction 
+    я учусь на $format $Level $Direction  
+
+    $Direction $format $Level 
+    на $Direction $format $Level 
+    я учусь на $Direction $format $Level 
+
+    $Direction $Level $format 
+    на $Direction $Level $format 
+    я учусь на $Direction $Level $format
+
+
+#end_rasp - НАЗВАНИЕ ИНТЕНТА
+root:
+    нет
+    хватит
+    не хочу
+    выйди
+
+
+#is_course - НАЗВАНИЕ ИНТЕНТА
+slots:
+    course:
+        source: $Course
+        type: Course
+
+root:
+    $On? $Course ?курсе
+$On:
+    на
+    я сейчас на
+    учусь на
+    я сейчас ?учусь на
+
+
+#start_rasp - НАЗВАНИЕ ИНТЕНТА
+root:
+    да
+    давай
+    начнём
+    расскажи расписание
+    скажи расписание
+    конечно
+    давай начнём
+
+
+#what_group - НАЗВАНИЕ ИНТЕНТА
+slots:
+    groups:
+        source: $Groups
+        type: Groups
+
+root:
+    %lemma
+    $Groups
+    в $Groups
+
+
+#what_level - НАЗВАНИЕ ИНТЕНТА
+slots:
+    level:
+        source: $Level
+        type: Level
+
+root:
+    %lemma
+    $Level
+    на $Level
+
+
+#what_you_can - НАЗВАНИЕ ИНТЕНТА
+root:
+
+    что ты умеешь ?делать
+    что ты можешь ?делать
+    что ты можешь ?рассказать
+    справка
+    покажи справку
+
+
+#when_date - НАЗВАНИЕ ИНТЕНТА
+slots:
+    when_date:
+        source: $when_date
+        type: when_date
+    date:
+        source: $date
+        type: YANDEX.DATETIME
+
+
+root:
+    $when_date $date
+    .+ $date
+
+$date:
+    $YANDEX.DATETIME
+
+
+#when_master - НАЗВАНИЕ ИНТЕНТА
+slots:
+    when_master:
+        source: $when_master
+        type: when_master
+    surname:
+        source: $From
+        type: YANDEX.FIO
+
+
+root:
+    $when_master $From
+    .+ $From
+
+$From:
+    $YANDEX.FIO
+
+
+#when_subject - НАЗВАНИЕ ИНТЕНТА
+slots:
+    when_subject:
+        source: $when_subject
+        type: when_subject
+
+
+root:
+    $when_subject .+
+
+
+#when_weekday - НАЗВАНИЕ ИНТЕНТА
+slots:
+    when_date:
+        source: $when_date
+        type: when_date
+    weekday:
+        source: $weekday
+        type: weekday
+
+
+root:
+    $when_date в $weekday
+    $when_date во $weekday
+    .+ $weekday
+
+
+
+
+
